@@ -1,0 +1,1 @@
+Promises in ES6 are a way to handle asynchronous operations. They represent a value that may not be available yet, but will be resolved at some point in the future. Promises can be in one of three states: fulfilled, rejected, or pending.
