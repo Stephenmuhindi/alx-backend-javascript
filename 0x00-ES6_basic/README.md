@@ -1,0 +1,1 @@
+ES6, also known as ECMAScript 2015, is the sixth edition of the ECMAScript language standard. It's a significant update to the JavaScript language, introducing many new features, syntax improvements, and performance enhancements. ES6 is supported by most modern browsers and Node.js environments.
