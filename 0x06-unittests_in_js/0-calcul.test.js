@@ -1,3 +1,7 @@
+const assert = require('assert');
+const calculateNumber = require('./0-calcul');
+
+describe('calculateNumber', () => {
  it(`checking if numbers round`, function() {
       const res = calculateNumber(1, 2);
       assert.strictEqual(res, 3);
