@@ -19,8 +19,8 @@ describe('calculateNumber', () => {
       assert.strictEqual(res, 15);
     });
     it(`checking if numbers round`, function() {
-      const res = calculateNumber(1.5, 3.7);
-      assert.strictEqual(res, 6);
+      const res = calculateNumber(-1.5, -3.7);
+      assert.strictEqual(res, -5);
     });
     it(`checking if numbers round`, function() {
       const res = calculateNumber(4, 3);
