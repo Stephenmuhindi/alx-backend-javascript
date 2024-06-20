@@ -8,7 +8,7 @@ describe('calculateNumber', () => {
     });
 
     it('numbers', () => {
-      expect(calculateNumber('SUM', 1.0, 3.0), 4);
+      expect(calculateNumber('SUM', -1.0, 3.0), 2.0);
     });
 
     it(' numbers', () => {
@@ -26,7 +26,7 @@ describe('calculateNumber', () => {
     });
 
     it('numbers', () => {
-      expect(calculateNumber('SUBTRACT', 2.8, 1.8), 1.0);
+      expect(calculateNumber('SUBTRACT', 2.8, -1.2), 4.0);
     });
 
     it('numbers', () => {
