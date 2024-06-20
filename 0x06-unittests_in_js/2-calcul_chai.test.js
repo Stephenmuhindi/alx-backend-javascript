@@ -1,62 +1,36 @@
-const expect = require('chai').expect;
-const calculateNumber = require('./2-calcul_chai');
+const expect = require("chai").expect;
+const {describe, it} = require("mocha");
+const calculateNumber = require("./2-calcul_chai");
 
-describe('calculateNumber', () => {
-  describe('type == "SUM"', () => {
-    it('number', () => {
-      expect(calculateNumber('SUM', 1.4, 4.5), 6);
+describe("calculateNumber", function() {
+    describe("SUM", function() {
+	it("checking if numbers round", function() {
+	    expect(calculateNumber("SUM", 3, 2)).to.equal(5);
+	});
+	it("checking if numbers round", function() {
+	    expect(calculateNumber("SUM", 4.8, 3.2)).to.equal(8);
+	});
     });
-
-    it('numbers', () => {
-      expect(calculateNumber('SUM', -1.0, 3.0), 2.0);
+    describe("SUBTRACT", function() {
+	it("checking if numbers round", function() {
+	    expect(calculateNumber("SUBTRACT", 9.4, 2.4)).to.equal(7.0);
+	});
+	it("checking if numbers round", function() {
+	    expect(calculateNumber("SUBTRACT", 2.9, 8.9)).to.equal(-6);
+	});
+	it("checking if numbers round", function() {
+	    expect(calculateNumber("SUBTRACT", -7.9, -2.9)).to.equal(-5);
+	});
     });
-
-    it(' numbers', () => {
-      expect(calculateNumber('SUM', -5, -5), -10);
+    describe("DIVIDE", function() {
+	it("checking if numbers round", function() {
+	    expect(calculateNumber("DIVIDE", 15, 5)).to.equal(3);
+	});
+	it("checking if numbers round", function() {
+	    expect(calculateNumber("DIVIDE", 4.6, -2.3)).to.equal(-2.5);
+	});
+	it("checking if numbers round", function() {
+	    expect(calculateNumber("DIVIDE", 4, 0)).to.equal("Error");
+	});
     });
-
-    it('0 and 0', () => {
-      expect(calculateNumber('SUM', 0.0, 0.0), 0);
-    });
-  });
-
-  describe('type == "SUBTRACT"', () => {
-    it('numbers', () => {
-      expect(calculateNumber('SUBTRACT', 4.5, 1.5), 3.0);
-    });
-
-    it('numbers', () => {
-      expect(calculateNumber('SUBTRACT', 2.8, -1.2), 4.0);
-    });
-
-    it('numbers', () => {
-      expect(calculateNumber('SUBTRACT', -5, -3), -2);
-    });
-
-    it('0 and 0', () => {
-      expect(calculateNumber('SUBTRACT', 0.0, 0.0), 0);
-    });
-  });
-
-  describe('type == "DIVIDE"', () => {
-    it('numbers', () => {
-      expect(calculateNumber('DIVIDE', -4.0, -2.0), 2.0);
-    });
-
-    it('numbers', () => {
-      expect(calculateNumber('DIVIDE', 9.0, 3.0), 3.0);
-    });
-
-    it('0 and number', () => {
-      expect(calculateNumber('DIVIDE', 0.0, 5.0), 0);
-    });
-
-    it('number and 0', () => {
-      expect(calculateNumber('DIVIDE', 5.0, 0), 'Error');
-    });
-
-    it('0 and 0', () => {
-      expect(calculateNumber('DIVIDE', 0.0, 0.0), 'Error');
-    });
-  });
 });
