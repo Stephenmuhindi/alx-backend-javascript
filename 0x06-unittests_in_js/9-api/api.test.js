@@ -4,33 +4,50 @@ const { expect } = require('chai');
 describe('API integration test', () => {
   const API_URL = 'http://localhost:7865';
 
-  it('GET / return right response', (done) => {
-    request.get(`${API_URL}/`, (_err, res, body) => {
+  it('GET / returns correct response', (done) => {
+    request.get(`${API_URL}/`, (err, res, body) => {
+      if (err) {
+        console.error('Error:', err);
+        return done(err);
+      }
       expect(res.statusCode).to.be.equal(200);
       expect(body).to.be.equal('Welcome to the payment system');
       done();
     });
   });
 
-  it('GET /cart/:id return apropriate display :id', (done) => {
-    request.get(`${API_URL}/cart/47`, (_err, res, body) => {
+  it('GET /cart/:id returns correct response for valid :id', (done) => {
+    request.get(`${API_URL}/cart/47`, (err, res, body) => {
+      if (err) {
+        console.error('Error:', err);
+        return done(err);
+      }
       expect(res.statusCode).to.be.equal(200);
-      expect(body).to.be.equal('Payment methods for cart 23');
+      expect(body).to.be.equal('Payment methods for cart 47');
       done();
     });
   });
 
-  it('GET /cart/:id return 404 negative in :id', (done) => {
-    request.get(`${API_URL}/cart/-23`, (_err, res, _body) => {
+  it('GET /cart/:id returns 404 response for negative number values in :id', (done) => {
+    request.get(`${API_URL}/cart/-47`, (err, res) => {
+      if (err) {
+        console.error('Error:', err);
+        return done(err);
+      }
       expect(res.statusCode).to.be.equal(404);
       done();
     });
   });
 
-  it('GET /cart/:id return 404 alpha-numeric in :id', (done) => {
-    request.get(`${API_URL}/cart/ege489`, (_err, res, _body) => {
+  it('GET /cart/:id returns 404 response for non-numeric values in :id', (done) => {
+    request.get(`${API_URL}/cart/d200-44a5-9de6`, (err, res) => {
+      if (err) {
+        console.error('Error:', err);
+        return done(err);
+      }
       expect(res.statusCode).to.be.equal(404);
       done();
     });
   });
 });
+
